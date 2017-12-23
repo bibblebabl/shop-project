@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/bibblebabl/shop-project#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "morgan": "^1.9.0",
     "nodemon": "^1.14.3"
   }
 }

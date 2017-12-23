@@ -1,17 +1,18 @@
 const express = require('express')
+const logger = require('morgan')
 
-const config = require('./config')
-const products = require('./data/products.json')
-const productRouter = require('./routes/product')
+const { port, paths } = require('./config')
+const routers = require('./routers');
 
 const app = express()
 
-app.use(express.static(config.paths.public))
+app.use(express.static(paths.public));
 
-app.get('/', (req, res) => {
-  res.send('Главная страница')
-})
+app.use(logger('dev'))
 
+app.use('/', routers.main)
+app.use('/products', routers.products)
+app.use('/search', routers.search)
 
-app.listen(config.port, () => console.log(`Server is running on port: ${config.port}`))
+app.listen(port, () => console.log(`Server is running on: http://localhost:${port}`))
 

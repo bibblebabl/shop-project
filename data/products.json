@@ -1,26 +1,38 @@
 [
   {
     "name": "Product #1",
+    "id": "1",
+    "category": "one",
     "price": "1$"
   },
   {
     "name": "Product #2",
+    "id": "2",
+    "category": "one",
     "price": "2$"
   },
   {
     "name": "Product #3",
+    "id": "3",
+    "category": "two",
     "price": "3$"
   },
   {
     "name": "Product #4",
+    "id": "4",
+    "category": "two",
     "price": "4$"
   },
   {
     "name": "Product #5",
+    "id": "5",
+    "category": "three",
     "price": "5$"
   },
   {
     "name": "Product #6",
+    "id": "6",
+    "category": "three",
     "price": "6$"
   }
 ]
