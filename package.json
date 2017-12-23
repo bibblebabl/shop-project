@@ -1,0 +1,24 @@
+{
+  "name": "shop-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bibblebabl/shop-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bibblebabl/shop-project/issues"
+  },
+  "homepage": "https://github.com/bibblebabl/shop-project#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.14.3"
+  }
+}
