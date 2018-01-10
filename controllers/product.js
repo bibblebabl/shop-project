@@ -19,6 +19,7 @@ module.exports = {
 
   // GET /products
   showAllProducts(req, res) {
+    //res.send(products)
     res.render('products', {
       id: 'products',
       title: 'Магазин',

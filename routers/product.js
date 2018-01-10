@@ -16,7 +16,7 @@ const { product: {
 router.get('/', showAllProducts)
 router.get('/new', showNewProducts)
 router.get('/popular', showPopularProducts)
-router.get('/:book', findProduct, showProduct)
+router.get('/:id', findProduct, showProduct)
 
 
 module.exports = router
