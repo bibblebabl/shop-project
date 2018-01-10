@@ -7,8 +7,10 @@ const routers = require('./routers')
 
 const app = express()
 
+app.set('config', config)
+
 app.use(express.static(config.paths.public))
-app.set('config', config);
+app.use('/lib', express.static(config.paths.lib))
 
 app.use(logger('dev'))
 
@@ -16,7 +18,6 @@ app.use('/', routers.main)
 app.use('/products', routers.product)
 app.use('/search', routers.search)
 
-app.use(error.notFound);
+app.use(error.notFound)
 
 app.listen(config.port, () => console.log(`Server is running on: http://localhost:${config.port}`))
-

@@ -1,5 +1,5 @@
 module.exports = {
-    showResults(req, res) {
-        res.render('search', {});
-    }
-};
+  showResults(req, res) {
+    res.render('search', {})
+  }
+}

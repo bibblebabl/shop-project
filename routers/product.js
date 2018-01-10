@@ -1,20 +1,23 @@
 const router = require('express').Router()
 
-const { product: { showAllProducts } } = require('../controllers');
+const { products: {
+  showAllProducts,
+  
+} } = require('../controllers')
 
 router.get('/', showAllProducts)
 
 router.get('/:category', (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
   const product = products.filter(product => product.id === id)
   res.send(product)
 })
 
 router.get('/:category/:id', (req, res) => {
-  const category = req.params.category;
+  const category = req.params.category
   const product = products.filter(product => product.category === category)
   res.send(product)
 })
 
 
-module.exports = router;
+module.exports = router

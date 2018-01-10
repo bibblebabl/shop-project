@@ -8,4 +8,4 @@ router.get('/about', (req, res) => {
   res.send('Страница контактов')
 })
 
-module.exports = router;
+module.exports = router

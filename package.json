@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/bibblebabl/shop-project#readme",
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.3",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "morgan": "^1.9.0",
-    "nodemon": "^1.14.3"
+    "nodemon": "^1.14.3",
+    "normalize.css": "^7.0.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0"
   }
 }
