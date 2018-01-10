@@ -15,9 +15,13 @@ app.use('/lib', express.static(config.paths.lib))
 app.use(logger('dev'))
 
 app.use('/', routers.main)
+app.use('/auth', routers.auth)
+app.use('/profile', routers.profile)
 app.use('/products', routers.product)
-//app.use('/categories', routers.category)
+app.use('/cart', routers.cart)
 app.use('/search', routers.search)
+
+//app.use('/categories', routers.category)
 
 app.use(error.notFound)
 
