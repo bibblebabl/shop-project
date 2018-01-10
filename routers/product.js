@@ -1,23 +1,22 @@
 const router = require('express').Router()
 
-const { products: {
+const { product: {
+  findProduct,
   showAllProducts,
-  
+  showNewProducts,
+  showPopularProducts,
+  showProduct
 } } = require('../controllers')
 
+
+//const { category: { findCategories } } = require('../middleware')
+
+//router.use(findCategories)
+
 router.get('/', showAllProducts)
-
-router.get('/:category', (req, res) => {
-  const id = req.params.id
-  const product = products.filter(product => product.id === id)
-  res.send(product)
-})
-
-router.get('/:category/:id', (req, res) => {
-  const category = req.params.category
-  const product = products.filter(product => product.category === category)
-  res.send(product)
-})
+router.get('/new', showNewProducts)
+router.get('/popular', showPopularProducts)
+router.get('/:book', findProduct, showProduct)
 
 
 module.exports = router

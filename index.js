@@ -16,6 +16,7 @@ app.use(logger('dev'))
 
 app.use('/', routers.main)
 app.use('/products', routers.product)
+//app.use('/categories', routers.category)
 app.use('/search', routers.search)
 
 app.use(error.notFound)

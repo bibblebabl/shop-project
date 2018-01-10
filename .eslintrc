@@ -40,7 +40,7 @@
     ],
     "max-len": [
       2,
-      100
+      110
     ],
     "max-nested-callbacks": [
       1,
