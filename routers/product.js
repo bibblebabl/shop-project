@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
-router.get('/products', (req, res) => {
-  res.send(products)
-})
+const { product: { showAllProducts } } = require('../controllers');
+
+router.get('/', showAllProducts)
 
 router.get('/:category', (req, res) => {
   const id = req.params.id;

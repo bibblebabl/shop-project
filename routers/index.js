@@ -1,5 +1,5 @@
 module.exports = {
-  products: require('./products'),
+  product: require('./product'),
   main: require('./main'),
   search: require('./search')
 };
