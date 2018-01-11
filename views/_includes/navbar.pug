@@ -1,0 +1,27 @@
+div.container
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.rounded
+    a.navbar-brand(href='#') Shop
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample09', aria-controls='navbarsExample09', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarsExample09.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+      
+        li.nav-item.active
+          a.nav-link(href='#')
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/products') Товары
+        //- li.nav-item
+        //-   a.nav-link(href='#') Категории  
+        li.nav-item
+          a.nav-link(href='/cart') Корзина
+        li.nav-item
+          a.nav-link(href='/auth/login') Вход
+        li.nav-item
+          a.nav-link(href='/auth/register') Регистрация
+        li.nav-item
+          a.nav-link(href='/profile') Профиль
+
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='text', placeholder='Поиск', aria-label='Search')
+        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Поиск

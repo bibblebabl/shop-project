@@ -7,7 +7,11 @@ const routers = require('./routers')
 
 const app = express()
 
+app.set('view engine', 'pug')
+app.set('views', config.paths.views)
 app.set('config', config)
+
+app.locals.version = config.version
 
 app.use(express.static(config.paths.public))
 app.use('/lib', express.static(config.paths.lib))

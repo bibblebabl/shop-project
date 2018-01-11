@@ -1,0 +1,19 @@
+mixin cart-card(product)
+  tr
+    td(data-th='Product')
+      .row
+        .col-sm-2.hidden-xs
+          img.img-responsive(src='http://lorempixel.com/50/50', alt='...')
+        .col-sm-10
+          h4.nomargin Product 1
+          p
+    td(data-th='Price') $1.99
+    td(data-th='Quantity')
+      input.form-control.text-center(type='number', value='1')
+    td.text-center(data-th='Subtotal') 1.99
+    td.actions(data-th='')
+      button.btn.btn-info.btn-sm
+        span.glyphicon.glyphicon-star(aria-hidden='true') Edit
+      button.btn.btn-danger.btn-sm
+        span.glyphicon.glyphicon-star(aria-hidden='true') Delete
+

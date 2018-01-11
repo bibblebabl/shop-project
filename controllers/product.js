@@ -58,7 +58,7 @@ module.exports = {
 
   // GET /products/:id
   showProduct(req, res) {
-    res.render('product', {
+    res.render('products/product', {
       id: 'product',
       title: req.product.title,
       product: req.product

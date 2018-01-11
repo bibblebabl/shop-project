@@ -4,6 +4,7 @@
     "id": "1",
     "category": "one",
     "price": "1$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 5
   },
   {
@@ -11,6 +12,7 @@
     "id": "2",
     "category": "one",
     "price": "2$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 4
   },
   {
@@ -18,6 +20,7 @@
     "id": "3",
     "category": "two",
     "price": "3$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 3
   },
   {
@@ -25,6 +28,7 @@
     "id": "4",
     "category": "two",
     "price": "4$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 2
   },
   {
@@ -32,6 +36,7 @@
     "id": "5",
     "category": "three",
     "price": "5$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 1
   },
   {
@@ -39,6 +44,7 @@
     "id": "6",
     "category": "three",
     "price": "6$",
+    "desc": "Tempor laborum aute ex culpa adipisicing.",
     "likes": 0
   }
 ]

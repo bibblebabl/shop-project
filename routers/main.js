@@ -1,11 +1,7 @@
 const router = require('express').Router()
 
-router.get('/', (req, res) => {
-  res.send('Главная страница')
-})
+const { main: { showMain } } = require('../controllers')
 
-router.get('/about', (req, res) => {
-  res.send('Страница контактов')
-})
+router.get('/', showMain)
 
 module.exports = router

@@ -1,0 +1,13 @@
+extends ../_layout
+
+include ../_mixins/product-card
+
+block main
+  main#main
+    .container
+      if products.length
+        .card-columns
+          for product in products
+            +product-card(product)
+      else
+        p Книги не найдены
