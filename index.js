@@ -1,5 +1,6 @@
 const express = require('express')
 const logger = require('morgan')
+const bodyParser = require('body-parser')
 
 const config = require('./config')
 const { error } = require('./middleware')
@@ -15,6 +16,7 @@ app.locals.version = config.version
 
 app.use(express.static(config.paths.public))
 app.use('/lib', express.static(config.paths.lib))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(logger('dev'))
 

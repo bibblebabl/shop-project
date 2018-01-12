@@ -7,10 +7,10 @@ block main
       .card
         img.card-img-top.img-fluid(src='http://lorempixel.com/600/220', alt='')
         .card-body
-          h3.card-title Product Name
-          h4 $24.99
-          p.card-text
-          span.text-warning &starf; &starf; &starf; &starf; &star;
+          h3.card-title= product.name
+          h4= product.price
+          p.card-text= product.desc
+          span.text-warning У продукта #{product.likes} лайков
           a.btn.btn-success(href='/cart') Купить
 
             
