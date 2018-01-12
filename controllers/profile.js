@@ -1,5 +1,7 @@
 module.exports = {
   showProfile(req, res) {
-    res.render('profile', {})
+    res.render('profile', {
+      id: 'profile'
+    })
   }
 }

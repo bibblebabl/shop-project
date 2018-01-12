@@ -5,21 +5,17 @@ div.container
       span.navbar-toggler-icon
     #navbarsExample09.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-      
-        li.nav-item.active
-          a.nav-link(href='#')
-            span.sr-only (current)
-        li.nav-item
+        li.nav-item(class={active: id === 'products'})
           a.nav-link(href='/products') Товары
         //- li.nav-item
         //-   a.nav-link(href='#') Категории  
-        li.nav-item
+        li.nav-item(class={active: id === 'cart'})
           a.nav-link(href='/cart') Корзина
-        li.nav-item
+        li.nav-item(class={active: id === 'login'})
           a.nav-link(href='/auth/login') Вход
-        li.nav-item
+        li.nav-item(class={active: id === 'register'})
           a.nav-link(href='/auth/register') Регистрация
-        li.nav-item
+        li.nav-item(class={active: id === 'profile'})
           a.nav-link(href='/profile') Профиль
 
       form.form-inline.my-2.my-lg-0
