@@ -42,10 +42,6 @@
       2,
       110
     ],
-    "max-nested-callbacks": [
-      1,
-      1
-    ],
     "max-params": [
       1,
       4
@@ -57,6 +53,10 @@
     "no-use-before-define": [
       2,
       "nofunc"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
     ],
     "no-multi-spaces": 1,
     "no-process-exit": 0,
