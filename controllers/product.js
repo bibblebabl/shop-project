@@ -36,7 +36,7 @@ module.exports = {
     })
   },
 
-  // GET /books/popular
+  // GET /products/popular
   showPopularProducts(req, res) {
     res.render('products', {
       id: 'products',
