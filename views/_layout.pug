@@ -16,12 +16,12 @@ html(lang='ru')
 
     block head
 
-  body(id=`${id}-page` class=className).mdc-typography
+  body(id=`${id}-page` class=className)
   
     block header
       include _includes/navbar
   
-    div.container
+    div.container.content-wrapper
       block content
         section#content
 

@@ -2,10 +2,32 @@ extends _layout
 
 block content
 
-  main(role='main')
+  main(role="main")
     .jumbotron
-      h1= title
-      p.lead
-      p
-        a.btn.btn-lg.btn-success(href='/products', role='button') Посмотреть товары
-    
+      .container
+        h1.display-3 Главная страница
+        p
+          | Ex pariatur laborum consectetur deserunt nostrud adipisicing commodo dolor velit aliquip. Cillum sunt elit quis do ea ex tempor adipisicing amet amet enim. Incididunt ullamco culpa adipisicing amet dolore consequat velit eu. Qui nostrud ipsum est eiusmod ad minim sit.
+        p
+          a.btn.btn-primary.btn-lg(href="#" role="button") Узнать больше »
+    .container
+      .row
+        .col-md-4
+          h2 Товар #1
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            a.btn.btn-secondary(href="#" role="button") Подробнее »
+        .col-md-4
+          h2 Товар #2
+          p
+            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+          p
+            a.btn.btn-secondary(href="#" role="button") Подробнее »
+        .col-md-4
+          h2 Товар #3
+          p
+            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+          p
+            a.btn.btn-secondary(href="#" role="button") Подробнее »
+            
