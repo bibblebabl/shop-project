@@ -1,20 +1,15 @@
 extends ../_layout
 
-block header
-
 block content
-  form
-  .form-group.row
-    label.col-sm-2.col-form-label(for='inputEmail3') Почта
-    .col-sm-10
-      input#inputEmail3.form-control(type='email', placeholder='Email')
-  .form-group.row
-    label.col-sm-2.col-form-label(for='inputPassword3') Пароль
-    .col-sm-10
-      input#inputPassword3.form-control(type='password', placeholder='Password')
-  .form-group.row
-    .col-sm-10
-      button.btn.btn-primary(type='submit') Войти
-
+  form.form-signin
+    h2.form-signin-heading Войти в аккаунт
+    label.sr-only(for='inputEmail') Email
+    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+    label.sr-only(for='inputPassword') Пароль
+    input#inputPassword.form-control(type='password', placeholder='Password', required='')
+    .checkbox
+      label
+        input(type='checkbox', value='remember-me')
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Войти
 
 
