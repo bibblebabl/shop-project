@@ -1,0 +1,16 @@
+extends ../_layout
+
+include ../_mixins/product-card
+
+block content
+  section#content
+    block main
+      .card-columns
+        for product in products
+          +product-card(product)
+      .container
+        a.btn.btn-success(href='/admin/products/create') Добавить товар
+
+       
+
+

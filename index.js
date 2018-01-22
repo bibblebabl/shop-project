@@ -4,7 +4,9 @@ const bodyParser = require('body-parser')
 
 const config = require('./config')
 const { error } = require('./middleware')
+const connection = require('./services/db')
 const routers = require('./routers')
+const admin = require('./admin')
 
 const app = express()
 
@@ -13,6 +15,7 @@ app.set('views', config.paths.views)
 app.set('config', config)
 
 app.locals.version = config.version
+app.locals.basedir = config.paths.views
 
 app.use(express.static(config.paths.public))
 app.use('/lib', express.static(config.paths.lib))
@@ -27,6 +30,7 @@ app.use('/products', routers.product)
 app.use('/cart', routers.cart)
 app.use('/search', routers.search)
 
+app.use('/admin', admin)
 //app.use('/categories', routers.category)
 
 app.use(error.notFound)

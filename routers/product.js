@@ -9,9 +9,7 @@ const { product: {
 } } = require('../controllers')
 
 
-//const { category: { findCategories } } = require('../middleware')
-
-//router.use(findCategories)
+router.param('product', findProduct)
 
 router.get('/', showAllProducts)
 router.get('/new', showNewProducts)

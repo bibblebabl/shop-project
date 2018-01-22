@@ -1,0 +1,10 @@
+mixin product-card(product)
+  .card
+    img.card-img-top(src='http://lorempixel.com/250/200', alt='Card image cap')
+    .card-body
+      h5.card-title= product.name
+      p.card-text= product.category
+      p.card-text= product.desc
+        //- small.text-muted Last updated 3 mins ago
+      a.btn.btn-outline-primary(href=`/admin/products/${product._id}/update`) Редактировать
+

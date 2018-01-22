@@ -1,0 +1,18 @@
+extends ../_layout
+
+block main
+  .container
+    form(method='post')
+      .form-group
+        label(for='name') Название товара
+        input#name.form-control(type='text', name='name', placeholder='Название товара')
+      .form-group
+        label(for='category') Категория
+        input#category.form-control(type='text', placeholder='Категория')
+      .form-group
+        label(for='price') Цена
+        input#price.form-control(type='number', placeholder='Цена')
+      .form-group
+        label(for='desc') Описание товара
+        textarea#desc.form-control(rows='3')
+      button.btn.btn-primary(type='submit')= product._id ? 'Сохранить изменения' : 'Создать'

@@ -1,81 +1,76 @@
-//const products = require('../data/products')
-const { connect, ObjectID } = require('../services/db')
-
+const { product: Product } = require('../models')
 
 module.exports = {
+  findProduct(req, res, next, id) {
+    console.log('АЙДИ', id)
+    Product.findOne({ id })
+      .then(product => {
+        if (!product) {
+          let error = new Error('Книга не найдена')
+          error.status = 404
+          throw error
+        }
 
-  findProduct(req, res, next) {
-    const id = req.params.id
+        req.product = product
 
-    connect().then(collection => {
-      collection
-        .findOne({ _id: ObjectID(id) })
-        .then(product => {
-          req.product = product
-
-          next()
-        })
-        .catch(next)
-    })
-
+        next()
+      })
+      .catch(next)
   },
 
   // GET /products
   showAllProducts(req, res, next) {
-    connect().then(collection => {
-      collection.find().toArray()
-        .then(products => {
-          res.render('products', {
-            id: 'products',
-            title: 'Магазин',
-            products
-          })
+    Product.find()
+      .then(products => {
+        res.render('products', {
+          id: 'products',
+          title: 'Магазин',
+          products
         })
-        .catch(next)
-    })
+      })
+      .catch(next)
   },
 
   // GET /products/new
   showNewProducts(req, res, next) {
-    connect().then(collection => {
-      collection.find().toArray()
-        .then(products => {
-          res.render('products', {
-            id: 'products',
-            title: 'Новые товары',
-            products
-          })
-        })
-        .catch(next)
-    })
+    // connect().then(collection => {
+    //   collection
+    //     .find()
+    //     .toArray()
+    //     .then(products => {
+    //       res.render('products', {
+    //         id: 'products',
+    //         title: 'Новые товары',
+    //         products
+    //       })
+    //     })
+    //     .catch(next)
+    // })
   },
 
   // GET /products/popular
   showPopularProducts(req, res, next) {
-    connect().then(collection => {
-      collection.find().toArray()
-        .then(products => {
-          res.render('products', {
-            id: 'products',
-            title: 'Популярные товары',
-            products: products.sort((current, next) => next.likes - current.likes)
-          })
-        })
-        .catch(next)
-    })
+    // connect().then(collection => {
+    //   collection
+    //     .find()
+    //     .toArray()
+    //     .then(products => {
+    //       res.render('products', {
+    //         id: 'products',
+    //         title: 'Популярные товары',
+    //         products: products.sort((current, next) => next.likes - current.likes)
+    //       })
+    //     })
+    //     .catch(next)
+    // })
   },
 
-  // GET /topics/:topic
-  // showProductsByCategory(req, res) {
-  //   let productsByCategory = products.filter(product => product.categories.includes(req.category.id))
-
-  //   res.render('products', {
-  //     id: 'products',
-  //     title: `Товары по ${req.topic.title}`,
-  //     books: productsByCategory
-  //   })
-  // },
-
+  // GET /topics/:topic showProductsByCategory(req, res) {   let
+  // productsByCategory = products.filter(product =>
+  // product.categories.includes(req.category.id))   res.render('products', {
+  // id: 'products',     title: `Товары по ${req.topic.title}`,     books:
+  // productsByCategory   }) }, 
+  
   // GET /products/:id
   showProduct(req, res) {
     res.render('products/product', {
