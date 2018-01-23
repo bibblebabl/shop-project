@@ -2,11 +2,10 @@ const { product: Product } = require('../models')
 
 module.exports = {
   findProduct(req, res, next, id) {
-    console.log('АЙДИ', id)
     Product.findOne({ id })
       .then(product => {
         if (!product) {
-          let error = new Error('Книга не найдена')
+          let error = new Error('Товар не найден')
           error.status = 404
           throw error
         }

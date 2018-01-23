@@ -2,7 +2,6 @@ const { product: Product } = require('../../models')
 
 module.exports = {
   findProduct(req, res, next, id) {
-    console.log(id)
     Product.findById(id)
       .then(product => {
         if (!product) {
@@ -49,7 +48,7 @@ module.exports = {
     Product.findOneAndUpdate({
       _id: req.product.id
     }, req.body)
-      .then(product => res.redirect(`/admin/products/${product.id}/update`))
+      .then(() => res.redirect('/admin/products/'))
       .catch(next)
   },
 

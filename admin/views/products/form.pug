@@ -5,14 +5,16 @@ block main
     form(method='post')
       .form-group
         label(for='name') Название товара
-        input#name.form-control(type='text', name='name', placeholder='Название товара')
+        input#name.form-control(type='text', name='name', placeholder='Название товара', value= product.name ? product.name : '')
       .form-group
         label(for='category') Категория
-        input#category.form-control(type='text', placeholder='Категория')
+        input#category.form-control(type='text', name='category', placeholder='Категория', value= product.category ? product.category : '')
       .form-group
         label(for='price') Цена
-        input#price.form-control(type='number', placeholder='Цена')
+        input#price.form-control(type='number', name='price', placeholder='Цена', value= product.price ? product.price : '')
       .form-group
         label(for='desc') Описание товара
-        textarea#desc.form-control(rows='3')
+        textarea#desc.form-control(rows='3', name='desc', placeholder= product.desc ? product.desc : '')
       button.btn.btn-primary(type='submit')= product._id ? 'Сохранить изменения' : 'Создать'
+      if product._id
+        a.btn.btn-outline-primary(href=`/admin/topics/${product._id}/delete`) Удалить
