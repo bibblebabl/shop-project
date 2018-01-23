@@ -2,7 +2,7 @@ const { product: Product } = require('../models')
 
 module.exports = {
   findProduct(req, res, next, id) {
-    Product.findOne({ id })
+    Product.findById(id)
       .then(product => {
         if (!product) {
           let error = new Error('Товар не найден')

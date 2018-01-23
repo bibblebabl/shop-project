@@ -7,9 +7,7 @@ const Product = new Schema({
   price: { type: Number },
   category: { type: String, trim: true },
   desc: { type: String, trim: true }
-},{
-  timestamps: true 
-})
+}, { timestamps: true })
 
 Product.virtual('image').get(function () {
   return '/img/products/200.jpg'
