@@ -17,4 +17,4 @@ block main
         textarea#desc.form-control(rows='3', name='desc', placeholder= product.desc ? product.desc : '')
       button.btn.btn-primary(type='submit')= product._id ? 'Сохранить изменения' : 'Создать'
       if product._id
-        a.btn.btn-outline-primary(href=`/admin/topics/${product._id}/delete`) Удалить
+        a.btn.btn-outline-primary(href=`/admin/products/${product._id}/delete`) Удалить

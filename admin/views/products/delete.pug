@@ -1,5 +1,6 @@
 extends ../_layout
 
 block main
-  button.btn.btn-primary(href='/admin/products') Отмена
-  button.btn.btn-danger(type='submit') Danger
+  form(method='post')
+    button.btn.btn-primary(href='/admin/products') Отмена
+    button.btn.btn-danger(type='submit') Удалить
