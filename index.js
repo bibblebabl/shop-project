@@ -34,5 +34,6 @@ app.use('/admin', admin)
 //app.use('/categories', routers.category)
 
 app.use(error.notFound)
+app.use(app.get('env') === 'development' ? error.development : error.production)
 
 app.listen(config.port, () => console.log(`Server is running on: http://localhost:${config.port}`))
