@@ -14,7 +14,7 @@ block main
         input#price.form-control(type='number', name='price', placeholder='Цена', value= product.price ? product.price : '')
       .form-group
         label(for='desc') Описание товара
-        textarea#desc.form-control(rows='3', name='desc', placeholder= product.desc ? product.desc : '')
+        textarea#desc.form-control(rows='3', name='desc')= product.desc
       button.btn.btn-primary(type='submit')= product._id ? 'Сохранить изменения' : 'Создать'
       if product._id
         a.btn.btn-outline-primary(href=`/admin/products/${product._id}/delete`) Удалить
