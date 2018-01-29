@@ -1,4 +1,5 @@
 const path = require('path')
+//require('dotenv').config()
 
 module.exports = {
   version: '1.0.0',
@@ -9,5 +10,5 @@ module.exports = {
     lib: path.resolve(__dirname, '..', 'node_modules')
   },
   mongoLocalUrl: 'mongodb://localhost:27017/products',
-  mLabUrl: 'mongodb://tempuser:12345ttyy@ds211088.mlab.com:11088/shop-project'
+  mLabUrl: `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
 }
