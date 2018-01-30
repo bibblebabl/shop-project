@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
-const { product: { showProductsByCategory }} = require('../controllers')
+const { product: { showProductsByCategory } } = require('../controllers')
 
-const { category: { findCategories }} = require('../middleware')
+const { category: { findCategories } } = require('../middleware')
 
 router.get('/:category', findCategories, showProductsByCategory)
 

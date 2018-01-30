@@ -17,4 +17,6 @@ process.on('SIGINT', () => {
   })
 })
 
-module.exports = mongoose.connection
+module.exports = {
+  connection: mongoose.connection
+}

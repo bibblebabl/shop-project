@@ -1,9 +1,10 @@
 const path = require('path')
-//require('dotenv').config()
 
 module.exports = {
   version: '1.0.0',
+  env: process.env.NODE_ENV,
   port: process.env.PORT || 8080,
+  sessionSecret: 'Flx83ic6OFlx83ic6O',
   paths: {
     views: path.resolve(__dirname, '..', 'views'),
     public: path.resolve(__dirname, '..', 'public'),

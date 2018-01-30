@@ -68,8 +68,8 @@ module.exports = {
   // productsByCategory = products.filter(product =>
   // product.categories.includes(req.category.id))   res.render('products', {
   // id: 'products',     title: `Товары по ${req.topic.title}`,     books:
-  // productsByCategory   }) }, 
-  
+  // productsByCategory   }) },
+
   // GET /products/:id
   showProduct(req, res) {
     res.render('products/product', {

@@ -1,3 +1,4 @@
 module.exports = {
-  product: require('./product')
+  product: require('./product'),
+  user: require('./user')
 }
