@@ -50,17 +50,22 @@ User.statics.authenticate = function (email, password) {
     .findOne({ email })
     .then(user => {
       if (!user) {
-        let error = new Error()
+        let error = new Error('Пользователь не найден')
         error.status = 401
         throw error
       }
 
       return bcrypt
         .compare(password, user.password)
-        .then(isEqual => isEqual
-          ? user
-          : null)
-        .catch()
+        .then(isEqual => {
+          if (!isEqual) {
+            let error = new Error('Неверный пароль')
+            error.status = 401
+            throw error
+          }
+
+          return user
+        })
     })
 }
 

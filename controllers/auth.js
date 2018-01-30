@@ -41,7 +41,7 @@ module.exports = {
     let { email, password } = req.body
 
     if (!email || !password) {
-      let error = new Error()
+      let error = new Error('Введите логин и пароль')
       error.status = 401
       return next(error)
     }
@@ -56,11 +56,10 @@ module.exports = {
 
   logout(req, res, next) {
     if (req.session) {
-      req.session
-        .destroy(error => {
-          if (error) return next(error)
-          res.redirect('/')
-        })
+      req.session.destroy(error => {
+        if (error) return next(error)
+        res.redirect('/')
+      })
     }
   }
 }

@@ -1,15 +1,15 @@
 extends ../_layout
 
 block content
-  form.form-signin
+  form.form-signin(method='post')
     h2.form-signin-heading Войти в аккаунт
-    label.sr-only(for='inputEmail') Email
-    input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
-    label.sr-only(for='inputPassword') Пароль
-    input#inputPassword.form-control(type='password', placeholder='Password', required='')
-    .checkbox
-      label
-        input(type='checkbox', value='remember-me')
+    label.sr-only(for='email') Email
+    input#email.form-control(type='email', name='email', placeholder='Email', autofocus='')
+    label.sr-only(for='password') Пароль
+    input#password.form-control(type='password', name='password', placeholder='Password')
+    //- .checkbox
+    //-   label
+    //-     input(type='checkbox', value='remember-me')
     button.btn.btn-lg.btn-primary.btn-block(type='submit') Войти
 
 

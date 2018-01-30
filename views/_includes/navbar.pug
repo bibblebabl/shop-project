@@ -10,12 +10,16 @@ nav.container.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark.rounded
       //-   a.nav-link(href='#') Категории  
       li.nav-item(class={active: id === 'cart'})
         a.nav-link(href='/cart') Корзина
-      li.nav-item(class={active: id === 'login'})
-        a.nav-link(href='/auth/login') Вход
-      li.nav-item(class={active: id === 'register'})
-        a.nav-link(href='/auth/register') Регистрация
-      li.nav-item(class={active: id === 'profile'})
-        a.nav-link(href='/profile') Профиль
+      unless user
+        li.nav-item(class={active: id === 'login'})
+          a.nav-link(href='/auth/login') Вход
+        li.nav-item(class={active: id === 'register'})
+          a.nav-link(href='/auth/register') Регистрация
+      else
+        li.nav-item(class={active: id === 'profile'})
+          a.nav-link(href='/profile')= user.email
+        li.nav-item
+          a.nav-link(href='/auth/logout') Выйти
 
     form.form-inline.my-2.my-lg-0
       input.form-control.mr-sm-2(type='text', placeholder='Поиск', aria-label='Search')

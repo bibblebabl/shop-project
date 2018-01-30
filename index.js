@@ -4,7 +4,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const { connection } = require('./services/db')
 const config = require('./config')
-const { error } = require('./middleware')
+const { error, auth } = require('./middleware')
 const routers = require('./routers')
 const admin = require('./admin')
 
@@ -40,17 +40,14 @@ app.use(session({
   })
 }))
 
-// app.use((req, res, next) => {
-//   console.log(req.sessionf)
-//   res.locals.user = req.user
-
-//   next()
-// })
-
 app.use(logger('dev'))
+
+app.use(auth.findUser)
 
 app.use('/', routers.main)
 app.use('/auth', routers.auth)
+
+app.use(auth.authenticated)
 app.use('/profile', routers.profile)
 app.use('/products', routers.product)
 app.use('/cart', routers.cart)
