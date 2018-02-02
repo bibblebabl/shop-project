@@ -45,6 +45,10 @@ User.post('save', function (error, user, next) {
   }
 })
 
+User.methods.isCorrectPassword = function(password) {
+  return bcrypt.compare(password, this.password)
+}
+
 User.statics.authenticate = function (email, password) {
   return this
     .findOne({ email })

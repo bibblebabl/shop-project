@@ -7,6 +7,8 @@ const {
   }
 } = require('../middleware')
 
+const { passport } = require('../services')
+
 const {
   auth: {
     showRegisterPage,
@@ -20,12 +22,18 @@ const {
 router.route('/register')
   .all(unauthenticated)
   .get(showRegisterPage)
-  .post(register)
+  .post(passport.authenticate('local-register', {
+    failureRedirect: '/auth/register',
+    successRedirect: '/profile'
+  }))
 
 router.route('/login')
   .all(unauthenticated)
   .get(showLoginPage)
-  .post(login)
+  .post(passport.authenticate('local-login', {
+    failureRedirect: '/auth/login',
+    successRedirect: '/profile'
+  }))
 
 router.get('/logout', authenticated, logout)
 

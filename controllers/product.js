@@ -70,7 +70,7 @@ module.exports = {
   // id: 'products',     title: `Товары по ${req.topic.title}`,     books:
   // productsByCategory   }) },
 
-  // GET /products/:id
+  // GET /products/:product
   showProduct(req, res) {
     res.render('products/product', {
       id: 'product',

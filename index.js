@@ -2,9 +2,10 @@ const express = require('express')
 const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const { connection } = require('./services/db')
+const { db, passport } = require('./services')
 const config = require('./config')
 const { error, auth } = require('./middleware')
+
 const routers = require('./routers')
 const admin = require('./admin')
 
@@ -34,7 +35,7 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 * 3 // 3 days
   },
   store: new MongoStore({
-    mongooseConnection: connection,
+    mongooseConnection: db.connection,
     ttl: 60 * 60 * 24 * 3, // 3 days
     touchAfter: 60 * 60 * 24 // 1 day
   })
@@ -42,7 +43,15 @@ app.use(session({
 
 app.use(logger('dev'))
 
-app.use(auth.findUser)
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use((req, res, next) => {
+  console.log(req.user)
+  res.locals.user = req.user
+
+  next()
+})
 
 app.use('/', routers.main)
 app.use('/auth', routers.auth)
