@@ -38,7 +38,6 @@ module.exports = {
   },
 
   createProduct(req, res, next) {
-    console.log(req.body)
     Product.create(req.body)
       .then(() => res.redirect('/admin/products'))
       .catch(next)

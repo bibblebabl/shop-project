@@ -2,6 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+
 const { db, passport } = require('./services')
 const config = require('./config')
 const { error, auth } = require('./middleware')

@@ -7,8 +7,6 @@ module.exports = {
   },
 
   development(error, req, res, next) {
-    console.error(error)
-
     res.render('error', {
       id: 'error',
       title: 'Ошибка',

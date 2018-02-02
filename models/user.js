@@ -6,17 +6,11 @@ const Schema = mongoose.Schema
 const User = new Schema({
   email: {
     type: String,
-    required: [
-      true, 'Поле Email обязательно для заполнения.'
-    ],
+    required: [true, 'Поле Email обязательно для заполнения.'],
     unique: true,
     trim: true,
-    minlength: [
-      7, 'Адрес электронный почты слишком короткий.'
-    ],
-    maxlength: [
-      256, 'Адрес электронный почты слишком длинный.'
-    ],
+    minlength: [7, 'Адрес электронный почты слишком короткий.'],
+    maxlength: [256, 'Адрес электронный почты слишком длинный.'],
     match: [/^[a-zA-Z0-9'._%+-]+@[a-zA-Z0-9-][a-zA-Z0-9.-]*\.[a-zA-Z]{2,63}$/, 'Неверный формат адреса электронной почты.']
   },
   password: {
@@ -49,9 +43,8 @@ User.methods.isCorrectPassword = function(password) {
   return bcrypt.compare(password, this.password)
 }
 
-User.statics.authenticate = function (email, password) {
-  return this
-    .findOne({ email })
+User.statics.authenticate = function(email, password) {
+  return this.findOne({ email })
     .then(user => {
       if (!user) {
         let error = new Error('Пользователь не найден')
@@ -59,8 +52,7 @@ User.statics.authenticate = function (email, password) {
         throw error
       }
 
-      return bcrypt
-        .compare(password, user.password)
+      return bcrypt.compare(password, user.password)
         .then(isEqual => {
           if (!isEqual) {
             let error = new Error('Неверный пароль')

@@ -1,13 +1,6 @@
 const router = require('express').Router()
 
-const {
-  auth: {
-    authenticated,
-    unauthenticated
-  }
-} = require('../middleware')
-
-const { passport } = require('../services')
+const { auth: { authenticated, unauthenticated } } = require('../middleware')
 
 const {
   auth: {
@@ -22,18 +15,12 @@ const {
 router.route('/register')
   .all(unauthenticated)
   .get(showRegisterPage)
-  .post(passport.authenticate('local-register', {
-    failureRedirect: '/auth/register',
-    successRedirect: '/profile'
-  }))
+  .post(register)
 
 router.route('/login')
   .all(unauthenticated)
   .get(showLoginPage)
-  .post(passport.authenticate('local-login', {
-    failureRedirect: '/auth/login',
-    successRedirect: '/profile'
-  }))
+  .post(login)
 
 router.get('/logout', authenticated, logout)
 

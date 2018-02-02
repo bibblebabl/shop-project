@@ -1,4 +1,4 @@
-const { user: User } = require('../models')
+const { passport } = require('../services')
 
 module.exports = {
   // GET /auth/register
@@ -20,39 +20,16 @@ module.exports = {
   },
 
   // POST /auth/register
-  register(req, res, next) {
-    let { email, password, confirmPassword } = req.body
-
-    console.log(email, password, confirmPassword)
-
-    if (!email || !password) return next(new Error())
-    else if (password !== confirmPassword) return next(new Error())
-
-    User.create({ email, password })
-      .then(user => {
-        req.session.userId = user.id
-        res.redirect('/profile')
-      })
-      .catch(next)
-  },
+  register: passport.authenticate('local-register', {
+    failureRedirect: '/auth/register',
+    successRedirect: '/profile'
+  }),
 
   // POST /auth/login
-  login(req, res, next) {
-    let { email, password } = req.body
-
-    if (!email || !password) {
-      let error = new Error('Введите логин и пароль')
-      error.status = 401
-      return next(error)
-    }
-
-    User.authenticate(email, password)
-      .then(user => {
-        req.session.userId = user.id
-        res.redirect('/profile')
-      })
-      .catch(next)
-  },
+  login: passport.authenticate('local-login', {
+    failureRedirect: '/auth/login',
+    successRedirect: '/profile'
+  }),
 
   logout(req, res, next) {
     if (req.session) {
