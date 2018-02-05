@@ -17,6 +17,9 @@ block main
         for product in [1, 2, 3, 4]
           +cart-card(product)
 
+      pre
+        code= JSON.stringify(cart)
+
       tfoot
         tr.visible-xs
           td

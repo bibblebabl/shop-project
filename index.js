@@ -5,7 +5,7 @@ const MongoStore = require('connect-mongo')(session)
 
 const { db, passport } = require('./services')
 const config = require('./config')
-const { error, auth } = require('./middleware')
+const { error, auth, cart } = require('./middleware')
 
 const routers = require('./routers')
 const admin = require('./admin')
@@ -53,6 +53,8 @@ app.use((req, res, next) => {
 
   next()
 })
+
+app.use(cart)
 
 app.use('/', routers.main)
 app.use('/auth', routers.auth)
