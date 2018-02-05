@@ -3,6 +3,7 @@ const passport = require('passport')
 const { user: User } = require('../../models')
 
 require('./local')
+require('./github')
 
 passport.serializeUser((user, done) => {
   console.log('Сериализуем пользователя', user)

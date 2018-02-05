@@ -4,5 +4,6 @@ module.exports = {
   profile: require('./profile'),
   cart: require('./cart'),
   auth: require('./auth'),
+  oauth: require('./oauth'),
   search: require('./search')
 }

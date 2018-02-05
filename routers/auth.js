@@ -9,7 +9,11 @@ const {
     register,
     login,
     logout
+  },
+  oauth: {
+    github
   }
+
 } = require('../controllers')
 
 router.route('/register')
@@ -21,6 +25,9 @@ router.route('/login')
   .all(unauthenticated)
   .get(showLoginPage)
   .post(login)
+
+router.get('/github', github.authenticate)
+router.get('/github/callback', github.callback)
 
 router.get('/logout', authenticated, logout)
 

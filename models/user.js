@@ -16,8 +16,12 @@ const User = new Schema({
   password: {
     type: String,
     required: true
-  }
-}, { timestamps: true })
+  },
+  username: String,
+  photo: String
+}, {
+  timestamps: true
+})
 
 User.pre('save', function (next) {
   if (!this.isModified('password'))
