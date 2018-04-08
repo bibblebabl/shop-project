@@ -1,14 +1,11 @@
 const express = require('express')
-
-const api = express()
+const passport = require('passport')
 const routers = require('./routers')
 
+const api = express()
 
-api.get('/', (req, res, next) => {
-  res.status(404).json({ message: 'No Data' })
-  next()
-})
-
+api.use(routers.auth)
+api.use(passport.authenticate('jwt', { session: false }))
 api.use('/products', routers.product)
 
 api.use((error, req, res, next) => {

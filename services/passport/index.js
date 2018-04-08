@@ -4,6 +4,7 @@ const { user: User } = require('../../models')
 
 require('./local')
 require('./github')
+require('./jwt')
 
 passport.serializeUser((user, done) => {
   console.log('Сериализуем пользователя', user)

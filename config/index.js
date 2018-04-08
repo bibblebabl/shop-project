@@ -4,7 +4,8 @@ module.exports = {
   version: '1.0.0',
   env: process.env.NODE_ENV,
   port: process.env.PORT || 8080,
-  sessionSecret: 'Flx83ic6OFlx83ic6O',
+  sessionSecret: process.env.SESSION_SECRET,
+  jwtSecret: process.env.JWT_SECRET,
   paths: {
     views: path.resolve(__dirname, '..', 'views'),
     public: path.resolve(__dirname, '..', 'public'),
