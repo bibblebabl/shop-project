@@ -4,6 +4,7 @@ const config = require('../config')
 
 mongoose.Promise = global.Promise
 
+//mongoose.connect(config.mongoLocalUrl) // Local URL DB
 mongoose.connect(config.mLabUrl)
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'))

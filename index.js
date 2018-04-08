@@ -9,6 +9,7 @@ const { error, auth, cart } = require('./middleware')
 
 const routers = require('./routers')
 const admin = require('./admin')
+const api = require('./api')
 
 const app = express()
 
@@ -21,6 +22,9 @@ app.locals.basedir = config.paths.views
 
 app.use(express.static(config.paths.public))
 app.use('/lib', express.static(config.paths.lib))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(logger('dev'))
 
 app.use(express.urlencoded({ extended: false }))
 
@@ -42,7 +46,6 @@ app.use(session({
   })
 }))
 
-app.use(logger('dev'))
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -57,6 +60,7 @@ app.use((req, res, next) => {
 app.use(cart)
 
 app.use('/', routers.main)
+app.use('/api', api)
 app.use('/auth', routers.auth)
 
 app.use(auth.authenticated)
