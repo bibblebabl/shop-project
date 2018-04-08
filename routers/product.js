@@ -3,16 +3,14 @@ const router = require('express').Router()
 const { product: {
   findProduct,
   showAllProducts,
-  showNewProducts,
-  showPopularProducts,
+  showSearchResults,
   showProduct
 } } = require('../controllers')
 
 router.param('product', findProduct)
 
 router.get('/', showAllProducts)
-router.get('/new', showNewProducts)
-router.get('/popular', showPopularProducts)
+router.get('/search', showSearchResults)
 router.get('/:product', showProduct)
 
 

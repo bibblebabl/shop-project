@@ -4,5 +4,4 @@ module.exports = {
   profile: require('./profile'),
   cart: require('./cart'),
   auth: require('./auth'),
-  search: require('./search')
 }

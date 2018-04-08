@@ -67,7 +67,6 @@ app.use(auth.authenticated)
 app.use('/profile', routers.profile)
 app.use('/products', routers.product)
 app.use('/cart', routers.cart)
-app.use('/search', routers.search)
 
 app.use('/admin', admin)
 //app.use('/categories', routers.category)

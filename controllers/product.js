@@ -70,6 +70,15 @@ module.exports = {
   // id: 'products',     title: `Товары по ${req.topic.title}`,     books:
   // productsByCategory   }) },
 
+  showSearchResults(req, res) {
+    console.log(req.query)
+    res.render('products', {
+      id: 'product',
+      title: `По запросу ${req.query} найдено:`,
+      products: []
+    })
+  },
+
   // GET /products/:product
   showProduct(req, res) {
     res.render('products/product', {
