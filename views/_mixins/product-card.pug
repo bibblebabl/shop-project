@@ -5,6 +5,9 @@ mixin product-card(product)
       h5.card-title= product.name
       p.card-text= product.category
       p.card-text= product.desc
-        small.text-muted Last updated 3 mins ago
+        small.text-muted Last updated N mins ago
+      form(action='/cart' method='post')
+        input(type='hidden', name='productId', value=product._id)
+        button.btn.btn-outline-info(type='submit') Купить
       a.btn.btn-primary(href=`products/${product._id}`) Подробнее
 

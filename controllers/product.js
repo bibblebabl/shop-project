@@ -95,11 +95,13 @@ module.exports = {
   },
 
   // GET /products/:product
-  showProduct(req, res) {
+  showProduct(req, res, next) {
     res.render('products/product', {
       id: 'product',
       title: req.product.name,
       product: req.product
     })
+
+    next()
   }
 }

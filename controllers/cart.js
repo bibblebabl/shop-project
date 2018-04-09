@@ -1,16 +1,22 @@
 module.exports = {
-  showCart(req, res) {
+
+  //GET /cart
+  showCart(req, res, next) {
     res.render('cart', {
       id: 'cart',
-      cart: req.session.cart.getProducts()
+      title: 'Корзина',
+      cart: req.session.cart
     })
+
+    next()
   },
 
+  //POST /cart
   addProduct(req, res, next) {
-    req.cart.addProduct(req.params.product)
-
-    console.log(req.session.cart)
-
+    console.log('Session cart:', req.session.cart)
+    req.session.cart = req.session.cart || [] 
+    req.session.cart.push(req.body.productId)
+    res.redirect('back')
     next()
   }
 }

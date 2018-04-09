@@ -1,44 +1,5 @@
 extends ../_layout
 
-include ../_mixins/cart-card
-
 block main
-  .container
-    table#cart.table.table-hover.table-condensed
-      thead
-        tr
-          th(style='width:50%') Товар
-          th(style='width:10%') Цена
-          th(style='width:8%') Количество
-          th.text-center(style='width:22%') Итого 
-          th(style='width:10%')
-      tbody
-        
-        for product in [1, 2, 3, 4]
-          +cart-card(product)
-
-      pre
-        code= JSON.stringify(cart)
-
-      tfoot
-        tr.visible-xs
-          td
-          td
-          td
-          td.text-center 
-            strong Total 1.99
-          td
-        tr
-          td
-            a.btn.btn-warning(href="/products")
-              i.fa.fa-angle-left
-              |  Продолжить покупки
-          td.hidden-xs(colspan="2")
-          td.hidden-xs.text-center
-          td
-            a.btn.btn-success.btn-block(href="#")
-              | Checkout 
-              i.fa.fa-angle-right
-
-
-              
+  main#main
+    h1 None
