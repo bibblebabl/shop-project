@@ -10,7 +10,7 @@ const options = {
 }
 
 passport.use('local-register', new LocalStrategy(options, (req, email, password, done) => {
-  console.log(email, password, req.body)
+  //console.log(email, password, req.body)
 
   if (password !== req.body.confirmPassword) return done(new Error('Пароли не совпадают'))
 

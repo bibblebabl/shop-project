@@ -70,13 +70,28 @@ module.exports = {
   // id: 'products',     title: `Товары по ${req.topic.title}`,     books:
   // productsByCategory   }) },
 
-  showSearchResults(req, res) {
-    console.log(req.query)
-    res.render('products', {
-      id: 'product',
-      title: `По запросу ${req.query} найдено:`,
-      products: []
+  showSearchResults(req, res, next) {
+    let regex = new RegExp(req.query.query, 'gi')
+    let { skip, limit } = req.query
+
+    Product.find({
+      $or: [
+        { desc: regex },
+        { name: regex },
+        { category: regex }
+      ]
     })
+      // .limit(Number(limit))
+      // .skip(Number(skip))
+      .then(products => {
+        res.render('products', {
+          id: 'product-search',
+          title: `По запросу ${req.query.query} найдено:`,
+          query: req.query.query,
+          products
+        })
+      })
+      .catch(next)
   },
 
   // GET /products/:product

@@ -7,12 +7,12 @@ require('./github')
 require('./jwt')
 
 passport.serializeUser((user, done) => {
-  console.log('Сериализуем пользователя', user)
+  //console.log('Сериализуем пользователя', user)
   done(null, user._id)
 })
 
 passport.deserializeUser((userId, done) => {
-  console.log('Десериализуем пользователя', userId)
+  //console.log('Десериализуем пользователя', userId)
   User.findById(userId, done)
 })
 
