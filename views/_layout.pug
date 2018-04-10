@@ -22,6 +22,9 @@ html(lang='ru')
       include _includes/navbar
   
     div.container.content-wrapper
+      if flash
+        div(class=`alert alert-${flash.level}`)= flash.message
+
       block content
         section#content
 
