@@ -3,6 +3,9 @@ extends _layout
 include ../_mixins/product-card
 
 block main
+  if flash
+    pre: code= JSON.stringify(flash)
+
   main#main
     .container
       if products.length

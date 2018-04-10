@@ -1,5 +1,7 @@
 module.exports = {
+  auth: require('./auth'),
+  cart: require('./cart'),
   error: require('./error'),
-  auth: require('./auth')
+  flash: require('./flash'),
   //category: require('./category')
 }

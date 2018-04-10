@@ -5,7 +5,7 @@ const MongoStore = require('connect-mongo')(session)
 
 const { db, passport } = require('./services')
 const config = require('./config')
-const { error, auth } = require('./middleware')
+const { error, cart, auth, flash } = require('./middleware')
 
 const routers = require('./routers')
 const admin = require('./admin')
@@ -49,6 +49,8 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
+app.use(cart)
 
 app.use((req, res, next) => {
   res.locals.user = req.user

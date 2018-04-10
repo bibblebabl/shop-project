@@ -5,7 +5,7 @@ module.exports = {
   showCart(req, res, next) {
     Product.find({
       _id: {
-        $in: req.session.cart
+        $in: req.cart.products
       }
     })
       .then(products => {
@@ -19,20 +19,18 @@ module.exports = {
       .catch(next)
   },
 
-  //POST /cart
   addProduct(req, res) {
-    console.log('Session cart:', req.session.cart)
-    req.session.cart = req.session.cart || []
-    req.session.cart.push(req.body.productId)
+    req.cart.addProduct(req.body.productId)
+    req.flash('success', 'Товар добавлен')
+
     res.redirect('back')
   },
 
   // GET /cart/remove?productId=value
   removeProduct(req, res) {
-    if (req.session.cart) {
-      req.session.cart = req.session.cart.filter(productid => productid !== req.query.productId)
-    }
-    //req.flash('success', 'Товар удален') 
+    req.cart.removeProduct(req.query.productId)
+    req.flash('success', 'Товар удален')
+
     res.redirect('back')
   }
 }
