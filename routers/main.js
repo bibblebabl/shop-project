@@ -1,6 +1,10 @@
 const router = require('express').Router()
 
-const { main: { showMain } } = require('../controllers')
+const {
+  main: {
+    showMain
+  }
+} = require('../controllers')
 
 router.get('/', showMain)
 

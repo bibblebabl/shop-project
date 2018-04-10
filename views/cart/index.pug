@@ -2,4 +2,12 @@ extends ../_layout
 
 block main
   main#main
-    h1 None
+    h1 Товары:
+    if products.length
+      ul
+        for product in products
+          li
+            span= product.name
+            a(href=`/cart/remove?productId=${product.id}`).btn.btn-outline-primary Удалить товар
+    else
+      h3 Корзина пуста
