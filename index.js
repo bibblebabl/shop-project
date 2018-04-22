@@ -2,10 +2,13 @@ const express = require('express')
 const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+const helmet = require('helmet')
+const csurf = require('csurf')
+//const ms = require('ms')
 
 const { db, passport } = require('./services')
 const config = require('./config')
-const { error, cart, auth, flash } = require('./middleware')
+const { error, cart, csrf, auth, flash } = require('./middleware')
 
 const routers = require('./routers')
 const admin = require('./admin')
@@ -19,6 +22,11 @@ app.set('config', config)
 
 app.locals.version = config.version
 app.locals.basedir = config.paths.views
+
+app.use(helmet({
+  frameguard: { action: 'deny' },
+  hsts: false
+}))
 
 app.use(express.static(config.paths.public))
 app.use('/lib', express.static(config.paths.lib))
@@ -57,8 +65,11 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/', routers.main)
 app.use('/api', api)
+
+app.use(csurf(), csrf)
+
+app.use('/', routers.main)
 app.use('/auth', routers.auth)
 
 app.use(auth.authenticated)
