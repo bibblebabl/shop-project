@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js"
+    "start": "nodemon -r dotenv/config index.js",
+    "pmstart": "pm2 start index.js -i max",
+    "pmstop": "pm2 stop all",
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +44,7 @@
     "passport-github": "^1.1.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pm2": "^2.10.2",
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {

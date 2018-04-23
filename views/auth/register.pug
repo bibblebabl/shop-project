@@ -2,6 +2,7 @@ extends ../_layout
 
 block content
   form.form-signin(method='post')
+    input(type="hidden", name="_csrf" value=csrfToken)
     h2.form-signin-heading Зарегистрировать аккаунт
     label.sr-only(for='email') Email
     input#email.form-control(type='email', name='email', placeholder='Email', autofocus='')

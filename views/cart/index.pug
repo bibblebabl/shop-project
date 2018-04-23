@@ -8,6 +8,6 @@ block main
         for product in products
           li
             span= product.name
-            a(href=`/cart/remove?productId=${product.id}`).btn.btn-outline-primary Удалить товар
+            a(href=`/cart/remove?productId=${product._id}`).btn.btn-outline-primary Удалить товар
     else
       h3 Корзина пуста
